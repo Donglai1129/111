@@ -46,13 +46,45 @@
     }
 
     .nav .links { display: none; gap: 18px; justify-content: end; }
-    .nav .brand { justify-self: center; font-size: 14px; }
+    .nav .brand {
+      justify-self: center;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .logoMark {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      filter: brightness(0);
+      transform: translateY(-1px);
+      flex-shrink: 0;
+    }
+
+    .brandWrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      gap: 2px;
+    }
+
+    .brandCN {
+      font-size: 9px;
+      letter-spacing: .18em;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: .92;
+      line-height: 1;
+    }
 
     .hero {
       min-height: 100svh;
       display: grid;
-      grid-template-rows: auto 1fr auto;
-      padding: 56px 12px 18px;
+      grid-template-rows: auto auto auto auto;
+      gap: 22px;
+      padding: 64px 12px 28px;
       position: relative;
       overflow: hidden;
     }
@@ -69,37 +101,30 @@
     }
 
     .bigTitle {
-      align-self: center;
-      font-size: clamp(92px, 31vw, 330px);
-      line-height: .72;
-      letter-spacing: -.13em;
+      font-size: clamp(76px, 26vw, 330px);
+      line-height: .82;
+      letter-spacing: -.07em;
       font-weight: 950;
       text-transform: uppercase;
       animation: titleBlur 1.2s ease both;
+      max-width: 8ch;
     }
 
-.heroImage {
-  position: absolute;
-  width: 38vw;
-  max-width: 620px;
-  height: 52svh;
-  right: 6vw;
-  top: 24svh;
-  z-index: -1;
-  filter: grayscale(1) contrast(1.15);
-  animation: floatImage 7s ease-in-out infinite;
-}
+    .heroImage {$1animation: none;
+    }
 
     .heroBottom {
       display: grid;
       grid-template-columns: 1fr;
       gap: 18px;
       align-items: end;
+      position: relative;
+      z-index: 2;
     }
 
     .statement {
       max-width: 460px;
-      font-size: 26px;
+      font-size: clamp(28px, 9vw, 42px);
       line-height: .95;
       letter-spacing: -.06em;
       font-weight: 900;
@@ -113,6 +138,8 @@
       font-size: 13px;
       line-height: 1.5;
       animation: fadeUp 1s ease .35s both;
+      background: rgba(242, 240, 235, .78);
+      backdrop-filter: blur(8px);
     }
 
     .buttonRow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
@@ -316,11 +343,44 @@
     @media (min-width: 760px) {
       .nav { padding: 18px 28px; }
       .nav .links { display: flex; }
-      .hero { padding: 70px 28px 28px; }
+
+      .hero {
+        min-height: 100svh;
+        padding: 70px 28px 32px;
+        grid-template-rows: auto 1fr auto;
+        gap: 28px;
+      }
+
       .heroTop { grid-template-columns: 1fr 1fr 1fr; }
-      .heroBottom { grid-template-columns: 1.1fr .9fr; }
-      .statement { font-size: 42px; max-width: 680px; }
-      .infoCard { max-width: 430px; justify-self: end; }
+
+      .heroImage {
+        position: absolute;
+        width: 34vw;
+        max-width: 560px;
+        height: 48svh;
+        right: 7vw;
+        top: 25svh;
+        z-index: -1;
+        margin: 0;
+      }
+
+      .heroBottom {
+        grid-template-columns: 1.05fr .95fr;
+        align-items: end;
+      }
+
+      .statement {
+        font-size: clamp(36px, 3.2vw, 58px);
+        max-width: 760px;
+      }
+
+      .infoCard {
+        max-width: 430px;
+        justify-self: end;
+        background: transparent;
+        backdrop-filter: none;
+      }
+
       .services { grid-template-columns: .9fr 1.1fr; }
       .servicesText { padding: 50px 28px; }
       .imageGrid { grid-auto-rows: 33.33svh; }
@@ -337,7 +397,13 @@
 
   <header class="nav">
     <a href="#top">Menu</a>
-    <a class="brand" href="#top">MOC Hair Studio</a>
+    <a class="brand" href="#top">
+      <img class="logoMark" src="ChatGPT Image 2026年5月10日 23_18_34.png" alt="MOC Hair Studio logo">
+      <div class="brandWrap">
+        <span>MOC Hair Studio</span>
+        <span class="brandCN">好造型美发</span>
+      </div>
+    </a>
     <div class="links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
@@ -348,24 +414,24 @@
   <main id="top">
     <section class="hero">
       <div class="heroTop">
-        <p>15333 Culver Dr<br>Studio 9 Irvine, CA</p>
+        <p>2118 El Camino Real Ste 8<br>Santa Clara, CA</p>
         <p>Hair designer<br>Allen Wang</p>
-        <p>Phone<br>(949) 771-9888</p>
+        <p>Phone<br>(408) 520-5777</p>
       </div>
 
       <h1 class="bigTitle">MOC<br>Hair</h1>
 
       <div class="heroImage">
-
+        <img src="ChatGPT Image 2026年5月10日 23_18_34.png" alt="MOC Hair Studio image 1">
       </div>
 
       <div class="heroBottom">
         <p class="statement">Clean shape. Soft texture. Hair that feels calm but still has attitude.</p>
         <div class="infoCard">
-          <p>MOC Hair Studio is a private hair studio in Irvine by Allen Wang. The style is minimal, modern, and wearable, with a fashion editorial feeling.</p>
+          <p>MOC Hair Studio was founded in 2017 in Southern California. The studio combines technical precision, fashion aesthetics, and personalized service to create modern hairstyles with a refined editorial feeling.</p>
           <div class="buttonRow">
-            <a class="btn" href="tel:9497719888">Call</a>
-            <a class="btn" href="https://www.yelp.com/biz/moc-hair-studio-irvine-27?utm_campaign=www_business_share_popup&utm_medium=copy_link&utm_source=(direct)" target="_blank">Yelp</a>
+            <a class="btn" href="tel:4085205777">Call</a>
+            <a class="btn" href="https://www.yelp.com/" target="_blank">Yelp</a>
           </div>
         </div>
       </div>
@@ -378,7 +444,7 @@
     <section class="services" id="services">
       <div class="servicesText">
         <span class="sectionLabel">Services</span>
-        <h2>Not loud. Just sharp.</h2>
+        <h2>Precision, movement, and modern color.</h2>
         <div class="serviceList">
           <div class="serviceItem"><span>Haircut</span><span>Shape</span></div>
           <div class="serviceItem"><span>Hair color</span><span>Tone</span></div>
@@ -389,22 +455,25 @@
       </div>
 
       <div class="imageGrid">
-        <div class="imageTile large"><img src="54.jpg" alt="Editorial hair placeholder"></div>
-        <div class="imageTile"><img src="55.jpg" alt="Hair texture placeholder"></div>
-        <div class="imageTile"><img src="57.jpg" alt="Hair detail placeholder"></div>
+        <div class="imageTile large"><img src="54.jpg" alt="MOC Hair Studio image 2"></div>
+        <div class="imageTile"><img src="55.jpg" alt="MOC Hair Studio image 3"></div>
+        <div class="imageTile"><img src="57.jpg" alt="MOC Hair Studio image 4"></div>
       </div>
     </section>
 
     <section class="manifesto" id="about">
       <h2>A quiet studio for a controlled change.</h2>
       <div class="manifestoText">
-        <p>MOC Hair Studio focuses on creating modern hair that feels effortless, balanced, and personal.</p>
+        <div style="width:100%; max-width:260px; margin-bottom:28px; overflow:hidden;">
+          <img src="ChatGPT Image 2026年5月10日 23_13_46.png" alt="Allen Wang portrait" style="width:100%; height:auto; display:block; filter:grayscale(1) contrast(1.05);">
+        </div>
+        <p>MOC Hair Studio was founded in 2017 in Southern California and has built a strong reputation through professional technique, fashion focused aesthetics, and high quality service.</p>
         <br>
-        <p>Every cut, color, and texture is designed to match the client naturally instead of following trends too heavily.</p>
+        <p>Founder Allen Wang graduated from VIDAL SASSOON Academy and Pivot Point International Academy, with more than 30 years of experience in the hair industry.</p>
         <br>
-        <p>The studio values clean silhouettes, soft movement, and hair that still looks good outside the salon, in everyday life.</p>
+        <p>The studio is especially known for high end color work including balayage, layered coloring, western highlight techniques, and personalized color design.</p>
         <br>
-        <p>Allen Wang. Located in Irvine. Book through phone, WeChat, or Yelp.</p>
+        <p>At MOC, hair is not only styling. It is a reflection of personal identity, confidence, and lifestyle.</p>
       </div>
     </section>
 
@@ -414,23 +483,23 @@
       <div class="contactGrid">
         <div class="contactBlock">
           <h3>Designer</h3>
-          <p>Allen Wang</p>
+          <p>Allen Wang<br>@allen_hair_studio</p>
         </div>
         <div class="contactBlock">
           <h3>Phone</h3>
-          <a href="tel:9497719888">(949) 771-9888</a>
+          <a href="tel:4085205777">(408) 520-5777</a>
         </div>
         <div class="contactBlock">
-          <h3>WeChat</h3>
-          <p>allen_wang9888</p>
+          <h3>Email</h3>
+          <p>mochairstudio777@gmail.com</p>
         </div>
         <div class="contactBlock">
           <h3>Yelp</h3>
-          <a href="https://www.yelp.com/biz/moc-hair-studio-irvine-27?utm_campaign=www_business_share_popup&utm_medium=copy_link&utm_source=(direct)" target="_blank">View studio page</a>
+          <a href="https://www.yelp.com/" target="_blank">View Yelp page</a>
         </div>
         <div class="contactBlock">
           <h3>Address</h3>
-          <p>15333 Culver Dr Ste 200<br>Studio 9<br>Irvine, CA 92604</p>
+          <p>2118 El Camino Real Ste 8<br>Santa Clara, CA 95050</p>
         </div>
       </div>
     </section>
@@ -438,7 +507,7 @@
 
   <footer>
     <span>© MOC Hair Studio</span>
-    <span>Irvine CA</span>
+    <span>Santa Clara CA</span>
   </footer>
 </body>
 </html>
