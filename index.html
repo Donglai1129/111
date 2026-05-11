@@ -27,77 +27,32 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 20;
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 14px 16px;
+      mix-blend-mode: difference;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
 
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: start;
-
-  padding: 18px 28px;
-
-  color: #111;
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-.nav .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-right: 56px;
-  transform: translateY(2px);
-}
-
-.nav .links {
-  display: flex;
-  align-items: center;
-  gap: 34px;
-
-  height: 52px;
-}
-
-.logoMark {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  filter: brightness(0);
-  flex-shrink: 0;
-}
-
-.brandWrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  line-height: 1;
-  gap: 4px;
-}
-
-.brandWrap span:first-child {
-  font-size: 13px;
-}
-
-.brandCN {
-  font-size: 11px;
-  letter-spacing: .16em;
-  font-weight: 700;
-  line-height: 1;
-}
+    .nav .links { display: none; gap: 18px; justify-content: end; }
+    .nav .brand { justify-self: center; font-size: 14px; }
 
     .hero {
       min-height: 100svh;
       display: grid;
-      grid-template-rows: auto auto auto auto;
-      gap: 22px;
-      padding: 64px 12px 28px;
+      grid-template-rows: auto 1fr auto;
+      padding: 56px 12px 18px;
       position: relative;
       overflow: hidden;
     }
@@ -114,23 +69,45 @@
     }
 
     .bigTitle {
-      font-size: clamp(76px, 26vw, 330px);
-      line-height: .82;
-      letter-spacing: -.07em;
+      align-self: center;
+      font-size: clamp(92px, 31vw, 330px);
+      line-height: .72;
+      letter-spacing: -.13em;
+      display: inline-block;
       font-weight: 950;
       text-transform: uppercase;
       animation: titleBlur 1.2s ease both;
-      max-width: 8ch;
+    }
+
+    .titleLogoWrap {
+      display: inline-flex;
+      width: .96em;
+      height: .96em;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(.11em) scale(1.08);
+      margin: 0 -.12em 0 -.026em;
+      vertical-align: baseline;
+    }
+
+    .titleLogo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0);
+      transform: scale(1.18);
     }
 
     .heroImage {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: -10px 0 20px 12px;
-      z-index: 1;
-      animation: none;
+      position: absolute;
+      width: 38vw;
+      max-width: 620px;
+      height: 52svh;
+      right: 6vw;
+      top: 24svh;
+      z-index: -1;
       filter: grayscale(1) contrast(1.15);
+      animation: floatImage 7s ease-in-out infinite;
     }
 
     .heroBottom {
@@ -138,13 +115,11 @@
       grid-template-columns: 1fr;
       gap: 18px;
       align-items: end;
-      position: relative;
-      z-index: 2;
     }
 
     .statement {
       max-width: 460px;
-      font-size: clamp(28px, 9vw, 42px);
+      font-size: 26px;
       line-height: .95;
       letter-spacing: -.06em;
       font-weight: 900;
@@ -158,8 +133,6 @@
       font-size: 13px;
       line-height: 1.5;
       animation: fadeUp 1s ease .35s both;
-      background: rgba(242, 240, 235, .78);
-      backdrop-filter: blur(8px);
     }
 
     .buttonRow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
@@ -363,42 +336,11 @@
     @media (min-width: 760px) {
       .nav { padding: 18px 28px; }
       .nav .links { display: flex; }
-
-      .hero {
-        min-height: 100svh;
-        padding: 70px 28px 32px;
-        grid-template-rows: auto 1fr auto;
-        gap: 28px;
-      }
-
+      .hero { padding: 70px 28px 28px; }
       .heroTop { grid-template-columns: 1fr 1fr 1fr; }
-
-      .heroImage {
-        position: relative;
-        width: 220px;
-        height: 220px;
-        max-width: 220px;
-        margin: -20px 0 24px 18px;
-        z-index: 1;
-      }
-
-      .heroBottom {
-        grid-template-columns: 1.05fr .95fr;
-        align-items: end;
-      }
-
-      .statement {
-        font-size: clamp(36px, 3.2vw, 58px);
-        max-width: 760px;
-      }
-
-      .infoCard {
-        max-width: 430px;
-        justify-self: end;
-        background: transparent;
-        backdrop-filter: none;
-      }
-
+      .heroBottom { grid-template-columns: 1.1fr .9fr; }
+      .statement { font-size: 42px; max-width: 680px; }
+      .infoCard { max-width: 430px; justify-self: end; }
       .services { grid-template-columns: .9fr 1.1fr; }
       .servicesText { padding: 50px 28px; }
       .imageGrid { grid-auto-rows: 33.33svh; }
@@ -415,13 +357,7 @@
 
   <header class="nav">
     <a href="#top">Menu</a>
-    <a class="brand" href="#top">
-      <img class="logoMark" src="ChatGPT Image 2026年5月10日 23_18_34.png" alt="MOC Hair Studio logo">
-      <div class="brandWrap">
-        <span>MOC Hair Studio</span>
-        <span class="brandCN">好造型美发</span>
-      </div>
-    </a>
+    <a class="brand" href="#top">MOC Hair Studio</a>
     <div class="links">
       <a href="#services">Services</a>
       <a href="#about">About</a>
@@ -437,17 +373,21 @@
         <p>Phone<br>(408) 520-5777</p>
       </div>
 
-      <h1 class="bigTitle">MOC<br>Hair</h1>
+      <h1 class="bigTitle">
+        M<span class="titleLogoWrap"><img class="titleLogo" src="ChatGPT Image 2026年5月10日 23_18_34.png" alt="MOC logo"></span>C<br>Hair
+      </h1>
+
+      <div class="heroImage">
 
       </div>
 
       <div class="heroBottom">
         <p class="statement">Clean shape. Soft texture. Hair that feels calm but still has attitude.</p>
         <div class="infoCard">
-          <p>MOC Hair Studio was founded in 2017 in Southern California. The studio combines technical precision, fashion aesthetics, and personalized service to create modern hairstyles with a refined editorial feeling.</p>
+          <p>MOC Hair Studio was founded in 2017 in Southern California. The studio combines professional technique, fashion driven aesthetics, and high quality service to create a personalized hair experience for every client.</p>
           <div class="buttonRow">
             <a class="btn" href="tel:4085205777">Call</a>
-            <a class="btn" href="https://www.yelp.com/" target="_blank">Yelp</a>
+            <a class="btn" href="https://www.yelp.com/biz/moc-hair-studio-irvine-27?utm_campaign=www_business_share_popup&utm_medium=copy_link&utm_source=(direct)" target="_blank">Yelp</a>
           </div>
         </div>
       </div>
@@ -460,7 +400,7 @@
     <section class="services" id="services">
       <div class="servicesText">
         <span class="sectionLabel">Services</span>
-        <h2>Precision, movement, and modern color.</h2>
+        <h2>Precision movement and modern color</h2>
         <div class="serviceList">
           <div class="serviceItem"><span>Haircut</span><span>Shape</span></div>
           <div class="serviceItem"><span>Hair color</span><span>Tone</span></div>
@@ -471,9 +411,9 @@
       </div>
 
       <div class="imageGrid">
-        <div class="imageTile large"><img src="54.jpg" alt="MOC Hair Studio image 2"></div>
-        <div class="imageTile"><img src="55.jpg" alt="MOC Hair Studio image 3"></div>
-        <div class="imageTile"><img src="57.jpg" alt="MOC Hair Studio image 4"></div>
+        <div class="imageTile large"><img src="54.jpg" alt="Editorial hair placeholder"></div>
+        <div class="imageTile"><img src="55.jpg" alt="Hair texture placeholder"></div>
+        <div class="imageTile"><img src="57.jpg" alt="Hair detail placeholder"></div>
       </div>
     </section>
 
@@ -483,13 +423,13 @@
         <div style="width:100%; max-width:260px; margin-bottom:28px; overflow:hidden;">
           <img src="ChatGPT Image 2026年5月10日 23_13_46.png" alt="Allen Wang portrait" style="width:100%; height:auto; display:block; filter:grayscale(1) contrast(1.05);">
         </div>
-        <p>MOC Hair Studio was founded in 2017 in Southern California and has built a strong reputation through professional technique, fashion focused aesthetics, and high quality service.</p>
+        <p>MOC Hair Studio was founded in 2017 in Southern California. Over the years, the studio has remained dedicated to combining professional technique, fashion driven aesthetics, and high quality service.</p>
         <br>
         <p>Founder Allen Wang graduated from VIDAL SASSOON Academy and Pivot Point International Academy, with more than 30 years of experience in the hair industry.</p>
         <br>
-        <p>The studio is especially known for high end color work including balayage, layered coloring, western highlight techniques, and personalized color design.</p>
+        <p>MOC Hair Studio is especially known for high end color work, including balayage, layered coloring, western highlight techniques, and customized color design.</p>
         <br>
-        <p>At MOC, hair is not only styling. It is a reflection of personal identity, confidence, and lifestyle.</p>
+        <p>At MOC, hair is more than styling. It is an expression of personal identity, confidence, and lifestyle.</p>
       </div>
     </section>
 
@@ -511,7 +451,7 @@
         </div>
         <div class="contactBlock">
           <h3>Yelp</h3>
-          <a href="https://www.yelp.com/" target="_blank">View Yelp page</a>
+          <a href="https://www.yelp.com/biz/moc-hair-studio-irvine-27?utm_campaign=www_business_share_popup&utm_medium=copy_link&utm_source=(direct)" target="_blank">View studio page</a>
         </div>
         <div class="contactBlock">
           <h3>Address</h3>
