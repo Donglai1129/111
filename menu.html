@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOC Menu</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:#f2f0eb;
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.08;
+      z-index:99;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      z-index:50;
+      mix-blend-mode:difference;
+      color:white;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .navRight{
+      display:flex;
+      gap:26px;
+    }
+
+    .hero{
+      padding:110px 16px 60px;
+      border-bottom:1px solid #111;
+    }
+
+    .heroTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      margin-bottom:60px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:800;
+    }
+
+    .menuTitle{
+      font-size:clamp(88px, 24vw, 260px);
+      line-height:.78;
+      letter-spacing:-.12em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .menuSub{
+      margin-top:24px;
+      max-width:480px;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .menuWrap{
+      padding:30px 16px 120px;
+    }
+
+    .menuSection{
+      border-top:1px solid #111;
+      padding:26px 0;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+
+    .sectionTitle{
+      font-size:32px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:-.06em;
+    }
+
+    .service{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      padding:16px 0;
+      border-bottom:1px solid rgba(0,0,0,.12);
+    }
+
+    .serviceName{
+      font-size:18px;
+      font-weight:900;
+      text-transform:uppercase;
+      line-height:1;
+    }
+
+    .serviceDesc{
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.5;
+      max-width:680px;
+      opacity:.75;
+    }
+
+    .price{
+      font-size:15px;
+      font-weight:900;
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .note{
+      margin-top:60px;
+      padding-top:20px;
+      border-top:1px solid #111;
+      font-size:13px;
+      line-height:1.6;
+      max-width:760px;
+      opacity:.75;
+    }
+
+    @media(min-width:760px){
+
+      .hero{
+        padding:130px 28px 80px;
+      }
+
+      .menuWrap{
+        padding:40px 28px 140px;
+      }
+
+      .menuSection{
+        grid-template-columns:.5fr 1.5fr;
+        gap:40px;
+      }
+
+      .sectionTitle{
+        position:sticky;
+        top:120px;
+        align-self:start;
+      }
+
+      .serviceName{
+        font-size:22px;
+      }
+
+      .serviceDesc{
+        font-size:14px;
+      }
+
+      .price{
+        font-size:16px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<header class="nav">
+  <a href="index.html">Back</a>
+
+  <div class="navRight">
+    <a href="index.html">Home</a>
+    <a href="#">Menu</a>
+    <a href="tel:4085205777">Call</a>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="heroTop">
+    <p>MOC Hair Studio</p>
+    <p>Santa Clara, CA</p>
+  </div>
+
+  <h1 class="menuTitle">
+    MENU
+  </h1>
+
+  <p class="menuSub">
+    Precision cuts, modern color work, texture design, and treatments with a clean editorial approach.
+  </p>
+
+</section>
+
+<div class="menuWrap">
+
+  <section class="menuSection">
+
+    <h2 class="sectionTitle">
+      Haircuts
+    </h2>
+
+    <div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Men’s Cut</div>
+        </div>
+
+        <div class="price">$60</div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Women’s Cut</div>
+          <div class="serviceDesc">
+            Long hair pricing available.
+          </div>
+        </div>
+
+        <div class="price">
+          $90–100
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Children’s Cut</div>
+          <div class="serviceDesc">
+            Boys under 14, high school boys, and girls pricing varies.
+          </div>
+        </div>
+
+        <div class="price">
+          $40–60
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Wash / Blow Dry / Style</div>
+        </div>
+
+        <div class="price">
+          $50
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="menuSection">
+
+    <h2 class="sectionTitle">
+      Color
+    </h2>
+
+    <div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Root Touch Up</div>
+        </div>
+
+        <div class="price">$120</div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Full Head Color</div>
+        </div>
+
+        <div class="price">$160–220</div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">French Balayage</div>
+          <div class="serviceDesc">
+            Includes haircut.
+          </div>
+        </div>
+
+        <div class="price">
+          $450–800
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Babylights</div>
+          <div class="serviceDesc">
+            Cut not included.
+          </div>
+        </div>
+
+        <div class="price">
+          $350–550
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Standard Highlights</div>
+          <div class="serviceDesc">
+            Cut not included.
+          </div>
+        </div>
+
+        <div class="price">
+          $300
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="menuSection">
+
+    <h2 class="sectionTitle">
+      Texture
+    </h2>
+
+    <div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Cold Perm</div>
+        </div>
+
+        <div class="price">
+          $150–280
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Digital Perm</div>
+          <div class="serviceDesc">
+            Includes haircut.
+          </div>
+        </div>
+
+        <div class="price">
+          $350–380
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">French Perm</div>
+          <div class="serviceDesc">
+            Includes haircut.
+          </div>
+        </div>
+
+        <div class="price">
+          $400–450
+        </div>
+      </div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Japanese Hair Straightening</div>
+          <div class="serviceDesc">
+            Thermal reconditioning. Cut not included.
+          </div>
+        </div>
+
+        <div class="price">
+          $300–500
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="menuSection">
+
+    <h2 class="sectionTitle">
+      Care
+    </h2>
+
+    <div>
+
+      <div class="service">
+        <div>
+          <div class="serviceName">Hair Treatment</div>
+        </div>
+
+        <div class="price">
+          $150
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="note">
+    For services requiring an additional haircut fee, clients receive 50% off the haircut price when combined with a coloring or perming service.
+  </div>
+
+</div>
+
+</body>
+</html>
